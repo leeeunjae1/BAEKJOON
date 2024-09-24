@@ -22,7 +22,7 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         
         for(int i = 0; i < N; i++) {
-        	arr[i] = Float.parseFloat(st.nextToken());		
+        	arr[i] = Double.parseDouble(st.nextToken());		
 
         }
         
