@@ -1,23 +1,30 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) {
-    
-		Scanner in = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		int x = in.nextInt();
-		int y = in.nextInt();
+		String str = br.readLine();
+		StringTokenizer st = new StringTokenizer(str, " ");
 		
-		if(x != 0 && y >= 45 && x >= 0 && x <= 24 && y >=0 && y <= 59) {
-			System.out.printf("%d %d", x, y - 45);
-		} else if (x != 0 && y < 45 && x >= 0 && x <= 24 && y >=0 && y <= 59) {
-			System.out.printf("%d %d", x - 1, y + 15);
-		} else if (x == 0 && y >= 45 && x >= 0 && x <= 24 && y >=0 && y <= 59) {
-			System.out.printf("%d %d", x, y-45);
-		} else if (x == 0 && y < 45 && x >= 0 && x <= 24 && y >=0 && y <= 59) {
-			System.out.printf("%d %d", x + 23, y + 15);
+		int hour = Integer.parseInt(st.nextToken());
+		int minute = Integer.parseInt(st.nextToken());
+		
+		if(minute < 45) {
+			if(hour == 0) {
+				minute = minute + 15;
+				hour = hour + 23;
+			} else {
+				minute = minute + 15;
+				hour = hour - 1;
+			}
 		} else {
-			System.out.print("알람시계 에러발생");
+			minute = minute - 45;
 		}
+		
+		System.out.printf("%d %d", hour, minute);
 	}
 }
