@@ -1,24 +1,25 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) {
-    
-		Scanner in = new Scanner(System.in);
+	public static void main(String[] args) throws IOException{
 		
-		int x = in.nextInt();
-		int y = in.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		if(0 < x && 0 < y) {
-			System.out.print(1);
-		} else if (x < 0 && 0 < y) {
-			System.out.print(2);
-		} else if (x < 0 && y < 0) {
-			System.out.print(3);
-		} else if (0 < x && y < 0) {
-			System.out.print(4);
-		} else {
-			System.out.print("0,0");
+		int a = Integer.parseInt(br.readLine());
+		int b = Integer.parseInt(br.readLine());
+		
+		if (a > 0 && b > 0) {
+			System.out.println("1");
+		} else if (a < 0 && b > 0) {
+			System.out.println("2");
+		} else if (a < 0 && b < 0) {
+			System.out.println("3");
+		} else if (a > 0 && b < 0) {
+			System.out.println("4");
 		}
- 
+		
 	}
 }
