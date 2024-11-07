@@ -1,31 +1,32 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.Scanner;
-import java.util.StringTokenizer;
- 
+import java.io.BufferedReader;
+
 public class Main {
-	public static void main(String args[]) throws IOException{
-		
-		Scanner in = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int arr[] = new int[9];
 		
 		int max = Integer.MIN_VALUE;
+		int row = 0;
 		
-		int arrmax = 0;
+		for(int i = 0; i < arr.length; i++) {
+			int a = Integer.parseInt(br.readLine());
+			
+			arr[i] = a;
+			
+		}
 		
-		for(int i = 0; i < 9; i ++) {
-			arr[i] = in.nextInt();
-			if(arr[i] > max) {
-				max = arr[i];
-				arrmax = i;
+		for(int j = 0; j < arr.length; j++) {
+			if(arr[j] > max) {
+				max = arr[j];
+				row = j + 1;
 			}
 		}
 		
-		System.out.print(max + " " + (arrmax+1));
+		System.out.println(max);
+		System.out.println(row);
 		
 		
 	}
