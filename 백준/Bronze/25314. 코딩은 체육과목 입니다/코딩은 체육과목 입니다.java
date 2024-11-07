@@ -1,19 +1,20 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class Main {
-	public static void main(String[] args) {
-    
-		Scanner in = new Scanner(System.in);
+public class Main{
+	public static void main(String[] args) throws IOException{
 		
-		int count = in.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		int refeat = count / 4;
+		int a = Integer.parseInt(br.readLine());
 		
-		String a = "long";
+		int b = a / 4;
 		
-		for(int i = 1; i <= refeat; i++) {
-			System.out.print(a + " ");
+		for(int i = 0; i < b; i++) {
+			System.out.print("long ");
 		}
+		
 		System.out.print("int");
 		
 	}
