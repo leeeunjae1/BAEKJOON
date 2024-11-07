@@ -4,28 +4,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
- 
-public class Main {
- 
+
+public class Main{
 	public static void main(String[] args) throws IOException {
- 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		int N = Integer.parseInt(br.readLine());
+		int A = Integer.parseInt(br.readLine());
 		
-		StringTokenizer st;
-		
-		for(int i = 1; i <= N; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
+		for(int i = 1; i <= A; i ++) {
+			String str = br.readLine();
+			StringTokenizer st = new StringTokenizer(str, " ");
 			
-			int num1 = Integer.parseInt(st.nextToken());
-			int num2 = Integer.parseInt(st.nextToken());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
 			
-			System.out.println("Case #" + i + ": " + num1 + " + " + num2 + " = " + (num1 + num2));
-        }
+			bw.write("Case #" + i + ": " + a + " + " + b + " = "+ (a+b) +"\n");
+		}
 		
-		br.close();
+		bw.flush();
+		bw.close();
 		
 	}
 }
- 
