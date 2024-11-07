@@ -1,18 +1,18 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class Main {
-	public static void main(String[] args) {
-    
-		Scanner in = new Scanner(System.in);
+public class Main{
+	public static void main(String[] args) throws IOException{
 		
-		int x = in.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int A = Integer.parseInt(br.readLine());
 		
 		int sum = 0;
 		
-		for(int i = 1; i <= x; i++) {
-			
+		for(int i = 0; i <= A; i++) {
 			sum = sum + i;
-			
 		}
 		
 		System.out.println(sum);
