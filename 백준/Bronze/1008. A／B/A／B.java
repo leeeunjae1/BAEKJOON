@@ -1,13 +1,17 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-public class Main{
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        
-        double x = in.nextDouble();
-        double y = in.nextDouble();
-        
-        System.out.print(x/y);
-        
-    }
+public class Main {
+	public static void main(String[] args) throws IOException{
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		Double A = Double.parseDouble(st.nextToken());
+		Double B = Double.parseDouble(st.nextToken());
+		
+		System.out.println(A / B);
+		
+	}
 }
