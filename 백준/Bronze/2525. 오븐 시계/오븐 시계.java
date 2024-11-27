@@ -1,25 +1,44 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-public class Main {
-	public static void main(String[] args) {
-    
-		Scanner in = new Scanner(System.in);
+public class Main{
+	public static void main(String[] args) throws IOException {
 		
-		int a = in.nextInt();
-		int b = in.nextInt();
-		int c = in.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		if (a >= 0 && a <= 23 && b >= 0 && b <= 59 && c >= 0 && c <= 1000) {
-			if(b + c > 59) {
-				int x = (b + c) % 60; 
-				int y = (b + c) / 60;
-				System.out.printf("%d %d", (a + y) % 24, x);
-			} else if (b + c < 59) {
-				System.out.printf("%d %d", a, b + c);
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		int hour = Integer.parseInt(st.nextToken());
+		int minute = Integer.parseInt(st.nextToken());
+		
+		int runTime = Integer.parseInt(br.readLine());
+		
+		int H = 0;
+		int M = 0;
+		
+		H = runTime / 60;
+		M = runTime % 60;
+		
+		hour = hour + H;
+		minute = minute + M;
+		
+		if(hour >= 24) {
+			hour = hour - 24;
+			if(minute >= 60) {
+				hour++;
+				minute = minute % 60;
 			}
 		} else {
-			System.out.print("오븐 사용 에러");
+			if(minute >= 60) {
+				hour++;
+				if(hour >= 24) {
+					hour = hour - 24;
+				}
+				minute = minute % 60;
+			}
 		}
+		
+		System.out.printf("%d %d", hour, minute);
 		
 	}
 }
