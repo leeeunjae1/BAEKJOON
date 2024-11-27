@@ -1,16 +1,15 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-public class Main{
-    public static void main(String[] args) {
-       
-        Scanner in = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         
-        long a = in.nextLong();
+        long A = Long.parseLong(st.nextToken());
+        long B = Long.parseLong(st.nextToken());
+        long C = Long.parseLong(st.nextToken());
         
-        long b = in.nextLong();
-        
-        long c = in.nextLong();
-        
-        System.out.print(a + b + c);
+        System.out.println(A + B + C);
     }
 }
