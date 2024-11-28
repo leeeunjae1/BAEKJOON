@@ -1,46 +1,34 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
 public class Main{
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		int max = -1000000;
-		int min = 1000000;
+		int max = Integer.MIN_VALUE;
+		int min = Integer.MAX_VALUE;
 		
-		int A = Integer.parseInt(br.readLine());
+		int N = Integer.parseInt(br.readLine());
 		
-		int arr[] = new int[A];
+		int arr[] = new int[N];
 		
-		String str = br.readLine();
-		StringTokenizer st = new StringTokenizer(str, " ");
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		
 		for(int i = 0; i < arr.length; i++) {
-			int a = Integer.parseInt(st.nextToken());
-			
-			arr[i] = a;
+			int A =Integer.parseInt(st.nextToken());
+			arr[i] = A;
 		}
 		
-		for(int j = 0; j <arr.length; j++) {
-			if(arr[j] > max) {
-				max = arr[j];
+		for(int i =0; i < arr.length; i++) {
+			if(arr[i] > max) {
+				max = arr[i];
+			}
+			if(arr[i] < min) {
+				min = arr[i];
 			}
 		}
 		
-		for(int k = 0; k < arr.length; k++) {
-			if (arr[k] < min) {
-				min = arr[k];
-			}
-		}
-		
-		bw.write(min + " " + max);
-		bw.flush();
-		bw.close();
+		System.out.printf("%d %d", min, max);
 		
 	}
 }
