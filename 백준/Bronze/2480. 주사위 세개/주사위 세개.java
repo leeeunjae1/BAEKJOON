@@ -1,41 +1,36 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-public class Main {
-	public static void main(String[] args) {
-    
-		Scanner in = new Scanner(System.in);
+public class Main{
+	public static void main(String[] args) throws IOException {
 		
-		int a = in.nextInt();
-		int b = in.nextInt();
-		int c = in.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		if (a == b && b == c) {
-			int sum = 10000 + a * 1000;
-			System.out.print(sum);
-		} else if (a == b && a != c) {
-			int sum = 1000 + a * 100;
-			System.out.print(sum);
-		} else if (a != b && b == c) {
-			int sum = 1000 + b * 100;
-			System.out.print(sum);
-		} else if (a != b && a == c) {
-			int sum = 1000 + a * 100;
-			System.out.print(sum);
-		} else if (a != b && b != c && a != c) {
-			int max = 0;
-			if(a > b) {
-				max = a;
-			} else if (a < b){
-				max = b;
-			}
-			if(max > c) {
-				int sum = max * 100;
-				System.out.print(sum);
-			} else if(max < c){
-				int sum = c * 100;
-				System.out.print(sum);
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		int noon1 = Integer.parseInt(st.nextToken());
+		int noon2 = Integer.parseInt(st.nextToken());
+		int noon3 = Integer.parseInt(st.nextToken());
+		
+		int count = 0;
+		
+		if(noon1 == noon2 && noon1 == noon3) {
+			count = 10000 + (noon1 * 1000);
+		} else if(noon1 == noon2 && noon1 != noon3 || noon1 != noon2 && noon1 == noon3) {
+			count = 1000 + (noon1 * 100);
+		} else if (noon2 == noon3 && noon1 != noon2) {
+			count = 1000 + (noon2 * 100);
+		} else {
+			if(noon1 > noon2 && noon1 > noon3) {
+				count = noon1 * 100;
+			} else if(noon1 < noon2 && noon2 > noon3) {
+				count = noon2 * 100;
+			} else {
+				count = noon3 * 100;
 			}
 		}
+		
+		System.out.println(count);
 		
 	}
 }
